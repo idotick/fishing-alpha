@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvl7u4wa5smdt"
+path="res://.godot/imported/Milky Way.mp3-1dcffc768fecb526c6ec04ad67023dad.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Milky Way.mp3"
+dest_files=["res://.godot/imported/Milky Way.mp3-1dcffc768fecb526c6ec04ad67023dad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

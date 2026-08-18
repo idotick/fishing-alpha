@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ix7u00lyq6jf"
+path="res://.godot/imported/Crusing through the astroid rain.mp3-43a67ee3f69711a54f958c70d502e1a4.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Crusing through the astroid rain.mp3"
+dest_files=["res://.godot/imported/Crusing through the astroid rain.mp3-43a67ee3f69711a54f958c70d502e1a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
