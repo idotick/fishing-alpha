@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dcvrbssbx7q6o"]
+
+[ext_resource type="Script" uid="uid://24n4s7oi6762" path="res://src/fish/fish.gd" id="1_50vmv"]
+[ext_resource type="Texture2D" uid="uid://bn6ag6vt0o5sw" path="res://assets/fish/SpaceInvaders.png" id="1_s2ek2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50vmv"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qef01"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsxju"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eudhu"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uqyv"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ppy"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meha7"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6oi3"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysf4c"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpgn8"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4vo0"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqjr"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft8cm"]
+atlas = ExtResource("1_s2ek2")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_710pl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50vmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qef01")
+}],
+"loop": 1,
+"name": &"alien1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsxju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eudhu")
+}],
+"loop": 1,
+"name": &"alien2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uqyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ppy")
+}],
+"loop": 1,
+"name": &"alien3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meha7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6oi3")
+}],
+"loop": 1,
+"name": &"alien4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysf4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpgn8")
+}],
+"loop": 1,
+"name": &"alien5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4vo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft8cm")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_710pl"]
+size = Vector2(4, 5.5)
+
+[node name="Fish" type="Node2D" unique_id=527289246]
+script = ExtResource("1_50vmv")
+
+[node name="Glitched" type="AnimatedSprite2D" parent="." unique_id=785442133]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_710pl")
+animation = &"alien5"
+frame_progress = 0.9231734
+
+[node name="Default" type="AnimatedSprite2D" parent="." unique_id=30503396]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_710pl")
+animation = &"alien1"
+frame_progress = 0.6332958
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1095104360]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2091256691]
+shape = SubResource("RectangleShape2D_710pl")

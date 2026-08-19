@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cacyik4p0gcl4"]
+
+[ext_resource type="Script" uid="uid://cs7knjau6wq0k" path="res://src/water/water.gd" id="1_w14ia"]
+[ext_resource type="Shader" uid="uid://d2rbpvqc2hqdf" path="res://src/water/water.gdshader" id="2_me5we"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j67l7"]
+shader = ExtResource("2_me5we")
+shader_parameter/tint = Color(0.42000973, 0.58195496, 1, 1)
+
+[node name="Water" type="StaticBody2D" unique_id=784736807]
+script = ExtResource("1_w14ia")
+pivot_distance = 213.0
+
+[node name="Collision" type="CollisionPolygon2D" parent="." unique_id=1007525083]
+polygon = PackedVector2Array(0, 0, 5, 5, 7, 7)
+
+[node name="Area" type="Polygon2D" parent="." unique_id=1616519342]
+material = SubResource("ShaderMaterial_j67l7")

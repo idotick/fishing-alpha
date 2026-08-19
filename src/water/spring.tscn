@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgi0yanqhbjaa"]
+
+[ext_resource type="Script" uid="uid://bgg5y876axjx6" path="res://src/water/spring.gd" id="1_uqhig"]
+
+[node name="Spring" type="Node2D" unique_id=1181741131]
+script = ExtResource("1_uqhig")

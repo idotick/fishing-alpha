@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var game : Node = preload("res://scenes/game/game.tscn").instantiate()
+	var game : Node = preload("res://src/screens/game.tscn").instantiate()
 	var vis_tween : Tween = create_tween()
 	var aud_tween : Tween = create_tween()
 	
