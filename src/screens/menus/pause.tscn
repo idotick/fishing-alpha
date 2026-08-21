@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dimbaju85835d"]
+
+[ext_resource type="Script" uid="uid://bdi1gbidwebnv" path="res://src/screens/menus/pause.gd" id="1_siu7j"]
+[ext_resource type="Texture2D" uid="uid://bi6bhae1aa2sh" path="res://assets/ui/button/button_0.png" id="2_4vrej"]
+[ext_resource type="Texture2D" uid="uid://bf5k6vo13u2fu" path="res://assets/ui/button/button_1.png" id="3_2xspj"]
+[ext_resource type="FontFile" uid="uid://by8340u81cmn3" path="res://assets/ui/Minecraft.ttf" id="4_02ump"]
+[ext_resource type="PackedScene" uid="uid://ds3lxodolggyu" path="res://src/global/SoundManager.tscn" id="5_4vrej"]
+
+[node name="PauseMenu" type="Control" unique_id=585939189]
+custom_minimum_size = Vector2(320, 180)
+custom_maximum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+script = ExtResource("1_siu7j")
+
+[node name="Resume" type="TextureButton" parent="." unique_id=499534372]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_right = 124.0
+offset_bottom = 52.0
+grow_horizontal = 2
+texture_normal = ExtResource("2_4vrej")
+texture_pressed = ExtResource("3_2xspj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Resume" unique_id=895481025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_02ump")
+theme_override_font_sizes/font_size = 20
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reset" type="TextureButton" parent="." unique_id=895668881]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -26.0
+offset_right = 124.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_4vrej")
+texture_pressed = ExtResource("3_2xspj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Reset" unique_id=1322223093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_02ump")
+theme_override_font_sizes/font_size = 20
+text = "RESET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1356850390]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -52.0
+offset_right = 124.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_4vrej")
+texture_pressed = ExtResource("3_2xspj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Exit" unique_id=140918874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_02ump")
+theme_override_font_sizes/font_size = 20
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundManager" parent="." unique_id=1707725092 instance=ExtResource("5_4vrej")]
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

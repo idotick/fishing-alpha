@@ -13,6 +13,11 @@ extends StaticBody2D
 
 var water_springs: Array = []
 
+
+func _determine_shader_tint(is_glitching) -> void:
+	$Area.material.set_shader_parameter("glitch", is_glitching)
+
+
 func _ready() -> void:
 	var n_pivot = get_viewport_rect().size.x/pivot_distance + 1
 	$Collision.polygon.clear()
@@ -50,22 +55,23 @@ func _physics_process(_delta: float) -> void:
 			right_deltas[i] = spread * (water_springs[i].height - water_springs[i + 1].height)
 			water_springs[i + 1].velocity += right_deltas[i]
 	
-	var pivot_points = []
+	var vertices = []
 	for i in range(water_springs.size()):
 		if i < water_springs.size() - 1:
-			pivot_points.append(water_springs[i].position)
+			vertices.append(water_springs[i].position)
 		else:
 			var f_spring = water_springs[0]
 			var l_spring = water_springs[i]
 			
 			var screen_size = get_viewport_rect().size
 			
-			pivot_points.append(l_spring.position)
-			pivot_points.append(Vector2(l_spring.position.x, screen_size.y))
-			pivot_points.append(Vector2(f_spring.position.x, screen_size.y))
+			vertices.append(l_spring.position)
+			vertices.append(Vector2(screen_size.x, l_spring.position.y))
+			vertices.append(Vector2(screen_size.x, screen_size.y))
+			vertices.append(Vector2(f_spring.position.x, screen_size.y))
 	
-	$Collision.polygon = pivot_points
-	$Area.polygon = pivot_points
+	$Collision.polygon = vertices
+	$Area.polygon = vertices
 		
 
 

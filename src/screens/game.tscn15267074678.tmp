@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://gyiq8rrx8jro"]
+
+[ext_resource type="Script" uid="uid://d1a828fto4xem" path="res://src/screens/game.gd" id="1_0i1k4"]
+[ext_resource type="PackedScene" uid="uid://evnbrevs76rf" path="res://src/player/player.tscn" id="2_5y5ys"]
+[ext_resource type="PackedScene" uid="uid://cacyik4p0gcl4" path="res://src/water/water.tscn" id="3_ox7v8"]
+[ext_resource type="AudioStream" uid="uid://ix7u00lyq6jf" path="res://assets/music/Crusing through the astroid rain.mp3" id="4_soi0q"]
+[ext_resource type="AudioStream" uid="uid://chwoxhexep4wg" path="res://assets/music/Exploring the new planets.mp3" id="5_vtq5c"]
+[ext_resource type="AudioStream" uid="uid://bvl7u4wa5smdt" path="res://assets/music/Milky Way.mp3" id="6_66r2r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_710pl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jxb28"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jxb28"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("4_soi0q")
+stream_1/stream = ExtResource("5_vtq5c")
+stream_2/stream = ExtResource("6_66r2r")
+
+[node name="Game" type="Node2D" unique_id=364532815]
+script = ExtResource("1_0i1k4")
+
+[node name="Player" parent="." unique_id=584579488 instance=ExtResource("2_5y5ys")]
+
+[node name="Water" parent="." unique_id=784736807 instance=ExtResource("3_ox7v8")]
+position = Vector2(0, 80)
+target_height = 0.0
+
+[node name="Borders" type="StaticBody2D" parent="." unique_id=1310228710]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders" unique_id=445434559]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_710pl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders" unique_id=1668899600]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_jxb28")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders" unique_id=948806364]
+position = Vector2(640, 360)
+shape = SubResource("WorldBoundaryShape2D_jxb28")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders" unique_id=731812796]
+position = Vector2(640, 360)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_jxb28")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1449480596]
+stream = SubResource("AudioStreamRandomizer_jxb28")
+autoplay = true

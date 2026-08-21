@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ds3lxodolggyu"]
+
+[ext_resource type="Script" uid="uid://d3m6pbe8wmpdm" path="res://src/global/soundmanager.gd" id="1_krjeq"]
+[ext_resource type="AudioStream" uid="uid://ceuu5d2u1hyq0" path="res://assets/sfx/wave-complete-sfx (Level_Complete).wav" id="1_nbsoq"]
+[ext_resource type="AudioStream" uid="uid://cr0048m768jhq" path="res://assets/sfx/action-sfx (Water_Splash).wav" id="2_krjeq"]
+[ext_resource type="AudioStream" uid="uid://bm1e4mns7umfu" path="res://assets/sfx/score (Powerup).wav" id="3_tawmm"]
+[ext_resource type="AudioStream" uid="uid://lxt7cianrjge" path="res://assets/sfx/button-click-sfx (Click).wav" id="4_1qmki"]
+[ext_resource type="AudioStream" uid="uid://yqjomf6g1ms7" path="res://assets/sfx/pause-game-sfx (Pause).wav" id="5_ck008"]
+[ext_resource type="AudioStream" uid="uid://dn5cvespghgla" path="res://assets/sfx/Monster_Scream.wav" id="7_tawmm"]
+
+[node name="SoundManager" type="Node" unique_id=1707725092]
+script = ExtResource("1_krjeq")
+
+[node name="WaveComplete" type="AudioStreamPlayer" parent="." unique_id=2129428939]
+stream = ExtResource("1_nbsoq")
+volume_db = -10.0
+
+[node name="Cast" type="AudioStreamPlayer" parent="." unique_id=530930193]
+stream = ExtResource("2_krjeq")
+volume_db = -10.0
+
+[node name="Score" type="AudioStreamPlayer" parent="." unique_id=614923473]
+stream = ExtResource("3_tawmm")
+volume_db = -10.0
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=2048264286]
+stream = ExtResource("4_1qmki")
+volume_db = -5.0
+
+[node name="Pause" type="AudioStreamPlayer" parent="." unique_id=512626722]
+stream = ExtResource("5_ck008")
+volume_db = -10.0
+
+[node name="ROAR" type="AudioStreamPlayer" parent="." unique_id=568876090]
+stream = ExtResource("7_tawmm")
+volume_db = -10.0

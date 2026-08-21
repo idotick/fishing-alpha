@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Exploring the new planets.mp3-59f3444515dc941
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

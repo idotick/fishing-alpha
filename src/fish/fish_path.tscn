@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_mqord"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 700, 0, 0, 0, 0, 0, -60, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 640, 0)
 }
 point_count = 2
 
@@ -12,6 +12,4 @@ point_count = 2
 curve = SubResource("Curve2D_mqord")
 script = ExtResource("1_0otds")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1716097397]
-position = Vector2(700, 0)
-rotation = 3.1415927
+[connection signal="glitch_change" from="." to="." method="_on_glitch_change"]

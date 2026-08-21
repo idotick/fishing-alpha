@@ -1,18 +1,25 @@
 shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
-uniform vec4 tint : source_color = vec4(1.0);
+
+uniform bool glitch;
+uniform vec4 glitch_tint : source_color;
+uniform sampler2D water_texture : source_color, filter_nearest;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 shader = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 water = texture(water_texture, SCREEN_UV);
 	
-	color = mix(tint, color, 0.4);
+	if (glitch) {
+		water = mix(water, glitch_tint, 0.5);
+	}
+	shader = mix(water, shader, 0.6);
 	
-	COLOR = color;
+	COLOR = shader;
 }
 
 //void light() {

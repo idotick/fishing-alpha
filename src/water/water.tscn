@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cs7knjau6wq0k" path="res://src/water/water.gd" id="1_w14ia"]
 [ext_resource type="Shader" uid="uid://d2rbpvqc2hqdf" path="res://src/water/water.gdshader" id="2_me5we"]
+[ext_resource type="Texture2D" uid="uid://c65b5tl3gtq7b" path="res://assets/ui/dithering_texture.png" id="3_pgag4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j67l7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgag4"]
 shader = ExtResource("2_me5we")
-shader_parameter/tint = Color(0.42000973, 0.58195496, 1, 1)
+shader_parameter/glitch = false
+shader_parameter/glitch_tint = Color(0.56910634, 0.31436723, 0.6140514, 1)
+shader_parameter/water_texture = ExtResource("3_pgag4")
 
 [node name="Water" type="StaticBody2D" unique_id=784736807]
+constant_angular_velocity = 0.017453292
 script = ExtResource("1_w14ia")
 pivot_distance = 213.0
 
@@ -15,4 +19,4 @@ pivot_distance = 213.0
 polygon = PackedVector2Array(0, 0, 5, 5, 7, 7)
 
 [node name="Area" type="Polygon2D" parent="." unique_id=1616519342]
-material = SubResource("ShaderMaterial_j67l7")
+material = SubResource("ShaderMaterial_pgag4")

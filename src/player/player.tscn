@@ -1,20 +1,111 @@
 [gd_scene format=3 uid="uid://evnbrevs76rf"]
 
-[ext_resource type="Texture2D" uid="uid://c58cs36jqnsk7" path="res://assets/icon.svg" id="1_4anbu"]
 [ext_resource type="Script" uid="uid://dyeaqtb81xl13" path="res://src/player/player.gd" id="1_rxibo"]
+[ext_resource type="Texture2D" uid="uid://cpjg87aluileg" path="res://assets/player/rowing_left/rowing_left_01.png" id="2_rl62b"]
+[ext_resource type="Texture2D" uid="uid://dism5b4pvh4e6" path="res://assets/player/playerboatman.png" id="2_rxibo"]
+[ext_resource type="Texture2D" uid="uid://d0gvr13fg53a2" path="res://assets/player/hook.png" id="3_mf2ua"]
+[ext_resource type="Texture2D" uid="uid://dmykfwtfiowsf" path="res://assets/player/rowing_left/rowing_left_02.png" id="3_wlj80"]
+[ext_resource type="Texture2D" uid="uid://dl1l6lqhgvygo" path="res://assets/player/rowing_left/rowing_left_03.png" id="4_6bm8s"]
+[ext_resource type="Texture2D" uid="uid://55fa7egc50fw" path="res://assets/player/rowing_left/rowing_left_04.png" id="5_hrerp"]
+[ext_resource type="Texture2D" uid="uid://1dhri00w7bty" path="res://assets/player/rowing_left/rowing_left_05.png" id="6_oyld2"]
+[ext_resource type="Texture2D" uid="uid://bwo1wfw2aqv53" path="res://assets/player/rowing_left/rowing_left_06.png" id="7_vwsmr"]
+[ext_resource type="Texture2D" uid="uid://s4gklavfer5n" path="res://assets/player/rowing_right/rowing_rightt_01.png" id="8_jcdrv"]
+[ext_resource type="Texture2D" uid="uid://qeexsedvgjkf" path="res://assets/player/rowing_right/rowing_rightt_02.png" id="9_hja65"]
+[ext_resource type="Texture2D" uid="uid://dshf17nbd5v83" path="res://assets/player/rowing_right/rowing_rightt_03.png" id="10_5shm8"]
+[ext_resource type="Texture2D" uid="uid://cpr3yxv3ctxul" path="res://assets/player/rowing_right/rowing_rightt_04.png" id="11_5efpn"]
+[ext_resource type="Texture2D" uid="uid://co003a3eu3rg7" path="res://assets/player/rowing_right/rowing_rightt_05.png" id="12_4uy46"]
+[ext_resource type="Texture2D" uid="uid://cfyindi4sxlri" path="res://assets/player/rowing_right/rowing_rightt_06.png" id="13_k60ra"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxibo"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_710pl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rxibo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rl62b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wlj80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bm8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hrerp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oyld2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vwsmr")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jcdrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hja65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5shm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5efpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4uy46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k60ra")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf2ua"]
+radius = 6.0
+height = 36.0
 
 [node name="Player" type="CharacterBody2D" unique_id=793447625]
-collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_rxibo")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1164169005]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_4anbu")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1630506287]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_710pl")
+animation = &"right"
+frame_progress = 0.6551987
 offset = Vector2(0, -64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935190778]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_rxibo")
+position = Vector2(18, -26)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mf2ua")
+
+[node name="StringStart" type="Marker2D" parent="." unique_id=2015796573]
+position = Vector2(30, -73)
+
+[node name="String" type="Line2D" parent="." unique_id=1762205834]
+points = PackedVector2Array(30, -73, 30, -36)
+closed = true
+width = 2.0
+
+[node name="StringEnd" type="Marker2D" parent="." unique_id=273302714]
+position = Vector2(30, -36)
+
+[node name="Hook" type="Sprite2D" parent="." unique_id=876917250]
+texture_filter = 1
+position = Vector2(31, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mf2ua")

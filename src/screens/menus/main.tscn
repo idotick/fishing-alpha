@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dhrpe1mi1bbar"]
+
+[ext_resource type="FontFile" uid="uid://by8340u81cmn3" path="res://assets/ui/Minecraft.ttf" id="1_bnfyq"]
+[ext_resource type="Script" uid="uid://6tk3mi7mbo3f" path="res://src/screens/menus/main.gd" id="1_qdkrd"]
+[ext_resource type="Texture2D" uid="uid://c4mimrj30c1u" path="res://assets/ui/titletext.png" id="3_myy7r"]
+[ext_resource type="Script" uid="uid://d3wn572u3cp1v" path="res://src/screens/title.gd" id="4_d5l0l"]
+[ext_resource type="Texture2D" uid="uid://d0la2aj6txqrt" path="res://assets/ui/titlebg.png" id="4_il3y6"]
+[ext_resource type="PackedScene" uid="uid://ds3lxodolggyu" path="res://src/global/SoundManager.tscn" id="6_jdiyq"]
+
+[node name="MainMenu" type="Control" unique_id=110064138]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdkrd")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1628155583]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_il3y6")
+expand_mode = 5
+
+[node name="Title" type="TextureRect" parent="." unique_id=1451764613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_myy7r")
+expand_mode = 5
+script = ExtResource("4_d5l0l")
+
+[node name="Label" type="Label" parent="." unique_id=623729571]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -20.0
+offset_right = 72.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -1.5)
+theme_override_colors/font_color = Color(0.51092535, 0.81992954, 0.6030092, 1)
+theme_override_fonts/font = ExtResource("1_bnfyq")
+theme_override_font_sizes/font_size = 20
+text = "PRESS START"
+
+[node name="Button" type="Button" parent="." unique_id=1286844711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="SoundManager" parent="." unique_id=1707725092 instance=ExtResource("6_jdiyq")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

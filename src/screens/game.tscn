@@ -2,7 +2,37 @@
 
 [ext_resource type="Script" uid="uid://d1a828fto4xem" path="res://src/screens/game.gd" id="1_0i1k4"]
 [ext_resource type="PackedScene" uid="uid://evnbrevs76rf" path="res://src/player/player.tscn" id="2_5y5ys"]
+[ext_resource type="Texture2D" uid="uid://dryqtty10ndqh" path="res://assets/ui/kelpbg/kelpbg_01.png" id="2_pcy4t"]
+[ext_resource type="PackedScene" uid="uid://ds3lxodolggyu" path="res://src/global/SoundManager.tscn" id="2_yodwr"]
 [ext_resource type="PackedScene" uid="uid://cacyik4p0gcl4" path="res://src/water/water.tscn" id="3_ox7v8"]
+[ext_resource type="Texture2D" uid="uid://emjobf040v6i" path="res://assets/ui/kelpbg/kelpbg_02.png" id="3_pdp0a"]
+[ext_resource type="Texture2D" uid="uid://dbxcsegps2d3p" path="res://assets/ui/kelpbg/kelpbg_03.png" id="4_eoeri"]
+[ext_resource type="Texture2D" uid="uid://ief2hogjy5rx" path="res://assets/ui/kelpbg/kelpbg_04.png" id="5_b73ug"]
+[ext_resource type="Texture2D" uid="uid://fi1omsfe1jgh" path="res://assets/ui/kelpbg/kelpbg_05.png" id="6_4esju"]
+[ext_resource type="FontFile" uid="uid://by8340u81cmn3" path="res://assets/ui/Minecraft.ttf" id="8_66r2r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_710pl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pcy4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pdp0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eoeri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b73ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4esju")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_710pl"]
 
@@ -10,22 +40,38 @@
 
 [node name="Game" type="Node2D" unique_id=364532815]
 script = ExtResource("1_0i1k4")
+path_margin = 75.0
+
+[node name="SoundManager" parent="." unique_id=1707725092 instance=ExtResource("2_yodwr")]
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1306474035]
+texture_filter = 1
+position = Vector2(321, 178)
+scale = Vector2(0.333, 0.333)
+sprite_frames = SubResource("SpriteFrames_710pl")
+autoplay = "default"
+frame_progress = 0.18587151
 
 [node name="Player" parent="." unique_id=584579488 instance=ExtResource("2_5y5ys")]
+position = Vector2(223, 59)
+
+[node name="String" type="Line2D" parent="." unique_id=347318688]
+width = 2.0
+
+[node name="Fishes" type="Node2D" parent="." unique_id=1730307971]
 
 [node name="Water" parent="." unique_id=784736807 instance=ExtResource("3_ox7v8")]
-position = Vector2(0, 80)
+position = Vector2(0, 70)
 target_height = 0.0
+dampening = 0.07
 
 [node name="Borders" type="StaticBody2D" parent="." unique_id=1310228710]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders" unique_id=445434559]
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_710pl")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders" unique_id=1668899600]
-rotation = 3.1415927
-shape = SubResource("WorldBoundaryShape2D_jxb28")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders" unique_id=948806364]
 position = Vector2(640, 360)
@@ -35,3 +81,15 @@ shape = SubResource("WorldBoundaryShape2D_jxb28")
 position = Vector2(640, 360)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_jxb28")
+
+[node name="Score" type="Label" parent="." unique_id=1124545664]
+texture_filter = 1
+offset_left = 30.0
+offset_top = 21.0
+offset_right = 70.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("8_66r2r")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[connection signal="glitch_change" from="." to="." method="_on_glitch_change"]

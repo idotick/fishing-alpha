@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ceuu5d2u1hyq0"
+path="res://.godot/imported/wave-complete-sfx (Level_Complete).wav-1a8d2c3178baaa8109cbb214b9410f3f.sample"
+
+[deps]
+
+source_file="res://assets/sfx/wave-complete-sfx (Level_Complete).wav"
+dest_files=["res://.godot/imported/wave-complete-sfx (Level_Complete).wav-1a8d2c3178baaa8109cbb214b9410f3f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
